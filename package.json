@@ -7,22 +7,27 @@
   "types": "dist/types/index.d.ts",
   "exports": {
     "import": "./dist/index.js",
-    "require": "./dist/index.cjs"
+    "require": "./dist/index.cjs",
+    "umd": "./dist/index.umd.js",
+    "types": "./dist/types/index.d.ts"
   },
   "files": [
-    "dist"
+    "dist",
+    "dist/types"
   ],
   "scripts": {
     "dev": "vite",
     "build": "rollup -c",
     "lint": "eslint .",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run lint && npm run build"
   },
   "peerDependencies": {
     "react": ">=17.0.0",
     "react-dom": ">=17.0.0"
   },
+  "sideEffects": false,
   "devDependencies": {
+    "@changesets/cli": "^2.27.12",
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^28.0.2",
     "@rollup/plugin-node-resolve": "^16.0.0",

@@ -30,16 +30,17 @@ export default [
                   react: "React",
                   "react-dom": "ReactDOM",
                   "react/jsx-runtime": "ReactJSXRuntime"
-                }
+                },
+                sourcemap: true,
             },
         ],
         plugins: [
             peerDepsExternal(),
             resolve(),
             commonjs(),
-            typescript({ tsconfig: './tsconfig.json' }),
+            typescript({ tsconfig: './tsconfig.json', declaration: false }),
             postcss({
-                extract: true, // Extract CSS to a separate file
+                extract: 'dist/styles.css', // Extract CSS to a separate file
                 modules: true,
             }),
             terser(),
@@ -50,7 +51,7 @@ export default [
     // Generate TypeScript Declarations
     {
         input: 'src/index.ts',
-        output: [{ file: 'dist/index.d.ts', format: 'esm' }],
+        output: [{ file: 'dist/types/index.d.ts', format: 'esm' }],
         plugins: [dts()],
     }
 ];
