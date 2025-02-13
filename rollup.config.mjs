@@ -23,12 +23,13 @@ export default [
                 sourcemap: true,
             },
             {
-                file: "dist/index.iife.js",
-                format: "iife",
+                file: "dist/index.umd.js",
+                format: "umd",
                 name: "ReactConfirmation", // Global variable in browser
                 globals: {
                   react: "React",
-                  "react-dom": "ReactDOM"
+                  "react-dom": "ReactDOM",
+                  "react/jsx-runtime": "ReactJSXRuntime"
                 }
             },
         ],
