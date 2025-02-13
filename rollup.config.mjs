@@ -12,14 +12,24 @@ export default [
         input: 'src/index.ts',  
         output: [
             {
-                file: 'dist/index.js',
+                file: 'dist/index.cjs',
                 format: 'cjs',
+                exports: "named",
                 sourcemap: true,
             },
             {
-                file: 'dist/index.esm.js',
+                file: 'dist/index.js',
                 format: 'esm',
                 sourcemap: true,
+            },
+            {
+                file: "dist/index.iife.js",
+                format: "iife",
+                name: "ReactConfirmation", // Global variable in browser
+                globals: {
+                  react: "React",
+                  "react-dom": "ReactDOM"
+                }
             },
         ],
         plugins: [
@@ -27,10 +37,13 @@ export default [
             resolve(),
             commonjs(),
             typescript({ tsconfig: './tsconfig.json' }),
-            postcss(),
+            postcss({
+                extract: true, // Extract CSS to a separate file
+                modules: true,
+            }),
             terser(),
         ],
-        external: ['react', 'react-dom'],
+        external: ['react', 'react-dom','react/jsx-runtime'],
     },
 
     // Generate TypeScript Declarations

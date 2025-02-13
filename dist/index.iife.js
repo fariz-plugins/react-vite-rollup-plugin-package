@@ -1,0 +1,1 @@
+var ReactConfirmation=function(n,i){"use strict";return n.Confirmation=({message:n,onConfirm:o,onCancel:c})=>i.jsxs("div",{className:"confirmation-dialog",children:[i.jsx("p",{children:n}),i.jsx("button",{onClick:o,children:"Confirm"}),i.jsx("button",{onClick:c,children:"Cancel"})]}),n}({},jsxRuntime);
