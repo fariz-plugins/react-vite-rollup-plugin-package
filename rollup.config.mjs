@@ -38,7 +38,7 @@ export default [
             peerDepsExternal(),
             resolve(),
             commonjs(),
-            typescript({ tsconfig: './tsconfig.json', declaration: false }),
+            typescript({ tsconfig: './tsconfig.json', declaration: false, emitDeclarationOnly: false, }),
             postcss({
                 extract: 'dist/styles.css', // Extract CSS to a separate file
                 modules: true,

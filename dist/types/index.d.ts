@@ -1,2 +1,10 @@
-export { default as Confirmation } from './Confirmation';
-export type { ConfirmationProps } from './Confirmation';
+import React from 'react';
+
+interface ConfirmationProps {
+    message: string;
+    onConfirm: () => void;
+    onCancel: () => void;
+}
+declare const Confirmation: React.FC<ConfirmationProps>;
+
+export { Confirmation, type ConfirmationProps };
